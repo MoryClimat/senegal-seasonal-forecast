@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Senegal Seasonal Rainfall Forecast</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033}
+header{background:linear-gradient(135deg,#063b63,#0b6b8f);color:white;padding:28px 38px;border-bottom:6px solid #f2c300}
+header h1{margin:0;font-size:30px}
+header p{margin:8px 0 0;color:#dbeafe}
+main{max-width:1500px;margin:auto;padding:22px}
+.panel{background:white;border-radius:16px;padding:18px;margin-bottom:18px;box-shadow:0 6px 18px #0001}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.stat{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:14px}
+.stat b{display:block;font-size:26px;color:#063b63}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+select,input{padding:11px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:0;border-radius:999px;padding:9px 14px;background:#e8eef6;color:#063b63;cursor:pointer;font-weight:bold}
+.tab.active{background:#063b63;color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px}
+.card{background:white;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 5px 16px #0001;overflow:hidden}
+.card.main{border:3px solid #0b6b8f}
+.card img{width:100%;height:285px;object-fit:contain;background:#f1f5f9;border-bottom:1px solid #e5e7eb}
+.card-body{padding:15px}
+.badge{display:inline-block;background:#e0f2fe;color:#075985;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:bold;margin-bottom:8px}
+.card h3{margin:0 0 8px;font-size:16px}
+.meta{font-size:13px;color:#64748b;line-height:1.55}
+.actions{margin-top:12px;display:flex;gap:8px}
+.actions a{text-decoration:none;background:#edf3fb;color:#063b63;padding:8px 10px;border-radius:8px;font-size:13px}
+footer{text-align:center;color:#64748b;padding:24px}
+</style>
+</head>
+<body>
+<header>
+<h1>Senegal Seasonal Rainfall Forecast</h1>
+<p>C3S–PyCPT operational seasonal forecast | MJJ 2026 | Init: April 2026</p>
+</header>
+
+<main>
+<section class="panel">
+<h2>Main product</h2>
+<p><b>Skill-weighted MME forecast based on ECMWF, NCEP and ECCC.</b></p>
+<p id="interpretation"></p>
+</section>
+
+<section class="panel stats">
+<div class="stat"><b id="total">0</b>Total figures</div>
+<div class="stat"><b id="displayed">0</b>Displayed</div>
+<div class="stat"><b id="categories">0</b>Products</div>
+<div class="stat"><b id="models">0</b>Models/products</div>
+</section>
+
+<section class="panel controls">
+<select id="cat"><option value="">All products</option></select>
+<select id="model"><option value="">All models/products</option></select>
+<input id="search" placeholder="Search MME, ECMWF, NCEP, ECCC, skill...">
+</section>
+
+<section class="panel">
+<div class="tabs" id="tabs"></div>
+<div class="grid" id="grid"></div>
+</section>
+</main>
+
+<footer>
+Final operational product: weighted multimodel ensemble. Individual forecasts and diagnostics are provided for interpretation and verification.
+</footer>
+
+<script>
+let DATA=[], activeTab="";
+const $=id=>document.getElementById(id);
+const uniq=a=>[...new Set(a.filter(Boolean))].sort();
+
+function fill(id, vals){
+  const s=$(id), first=s.options[0].text;
+  s.innerHTML=`<option value="">${first}</option>`;
+  vals.forEach(v=>s.innerHTML+=`<option value="${v}">${v}</option>`);
+}
+
+function orderCat(c){
+  return {"MME Forecast":1,"Individual Forecast":2,"Skill":3,"CCA/EOF Diagnostics":4,"Other":5}[c] || 9;
+}
+
+function render(){
+  const cat=$("cat").value, model=$("model").value, q=$("search").value.toLowerCase();
+  let rows=DATA.filter(d =>
+    (!activeTab || d.category===activeTab) &&
+    (!cat || d.category===cat) &&
+    (!model || d.model===model) &&
+    (!q || JSON.stringify(d).toLowerCase().includes(q))
+  );
+
+  rows.sort((a,b)=>orderCat(a.category)-orderCat(b.category)||a.model.localeCompare(b.model)||a.title.localeCompare(b.title));
+  $("displayed").textContent=rows.length;
+  $("grid").innerHTML="";
+
+  rows.forEach(d=>{
+    const card=document.createElement("div");
+    card.className="card"+(d.category==="MME Forecast"?" main":"");
+    card.innerHTML=`
+      <img src="${d.path}">
+      <div class="card-body">
+        <span class="badge">${d.category}</span>
+        <h3>${d.title}</h3>
+        <div class="meta">
+          Model/Product: ${d.model}<br>
+          Season: ${d.season} ${d.year}<br>
+          File: ${d.filename}
+        </div>
+        <div class="actions">
+          <a href="${d.path}" target="_blank">Open</a>
+          <a href="${d.path}" download>Download</a>
+        </div>
+      </div>`;
+    $("grid").appendChild(card);
+  });
+}
+
+function buildTabs(){
+  const cats=["",...uniq(DATA.map(d=>d.category))];
+  $("tabs").innerHTML="";
+  cats.forEach(c=>{
+    const b=document.createElement("button");
+    b.className="tab"+(activeTab===c?" active":"");
+    b.textContent=c||"All";
+    b.onclick=()=>{activeTab=c;buildTabs();render();};
+    $("tabs").appendChild(b);
+  });
+}
+
+fetch("manifest.json?ts="+Date.now())
+.then(r=>r.json())
+.then(m=>{
+  DATA=(m.figures||[]).filter(d=>{
+    const s=(d.filename+d.category+d.model).toLowerCase();
+    return !s.includes("ai") && !s.includes("ml") && !s.includes("ridge") && !s.includes("test");
+  });
+  $("interpretation").textContent=m.interpretation || "";
+  $("total").textContent=DATA.length;
+  $("categories").textContent=uniq(DATA.map(d=>d.category)).length;
+  $("models").textContent=uniq(DATA.map(d=>d.model)).length;
+  fill("cat",uniq(DATA.map(d=>d.category)));
+  fill("model",uniq(DATA.map(d=>d.model)));
+  ["cat","model","search"].forEach(id=>$(id).addEventListener("input",render));
+  buildTabs(); render();
+});
+</script>
+</body>
+</html>

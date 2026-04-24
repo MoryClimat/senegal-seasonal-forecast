@@ -1,0 +1,6 @@
+data/
+output/
+*.nc
+*:Zone.Identifier
+__pycache__/
+*.pyc

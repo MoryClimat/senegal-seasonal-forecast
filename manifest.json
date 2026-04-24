@@ -1,0 +1,228 @@
+{
+  "title": "Senegal Seasonal Rainfall Forecast",
+  "subtitle": "C3S\u2013PyCPT operational seasonal forecast for Senegal | MJJ 2026",
+  "main_product": "Skill-weighted multimodel ensemble based on ECMWF, NCEP and ECCC",
+  "interpretation": "The MME forecast indicates rainfall totals generally increasing from northern to southern Senegal, with the highest deterministic rainfall amounts over southern and southeastern areas. Probabilistically, the dominant tercile is mostly below-normal to near-normal over large parts of the country, while above-normal probabilities remain spatially limited. The forecast should be interpreted probabilistically because skill is spatially heterogeneous.",
+  "figures": [
+    {
+      "id": 0,
+      "title": "CCA ECCC CCA mode 1 clean MJJ 2026",
+      "filename": "CCA_ECCC_CCA_mode_1_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECCC_CCA_mode_1_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 1,
+      "title": "CCA ECCC CCA mode 2 clean MJJ 2026",
+      "filename": "CCA_ECCC_CCA_mode_2_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECCC_CCA_mode_2_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 2,
+      "title": "CCA ECCC CCA mode 3 clean MJJ 2026",
+      "filename": "CCA_ECCC_CCA_mode_3_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECCC_CCA_mode_3_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 3,
+      "title": "CCA ECCC EOF mode 1 clean MJJ 2026",
+      "filename": "CCA_ECCC_EOF_mode_1_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECCC_EOF_mode_1_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 4,
+      "title": "CCA ECCC EOF mode 2 clean MJJ 2026",
+      "filename": "CCA_ECCC_EOF_mode_2_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECCC_EOF_mode_2_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 5,
+      "title": "CCA ECCC EOF mode 3 clean MJJ 2026",
+      "filename": "CCA_ECCC_EOF_mode_3_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECCC_EOF_mode_3_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 6,
+      "title": "CCA ECCC [determinstic probabilistic] Forecast",
+      "filename": "CCA_ECCC_[determinstic-probabilistic]-Forecast.png",
+      "path": "figures/CCA_ECCC_[determinstic-probabilistic]-Forecast.png",
+      "category": "Individual Forecast",
+      "model": "ECCC",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 7,
+      "title": "CCA ECMWF CCA mode 1 clean MJJ 2026",
+      "filename": "CCA_ECMWF_CCA_mode_1_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECMWF_CCA_mode_1_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECMWF",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 8,
+      "title": "CCA ECMWF EOF mode 1 clean MJJ 2026",
+      "filename": "CCA_ECMWF_EOF_mode_1_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECMWF_EOF_mode_1_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECMWF",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 9,
+      "title": "CCA ECMWF EOF mode 2 clean MJJ 2026",
+      "filename": "CCA_ECMWF_EOF_mode_2_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECMWF_EOF_mode_2_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECMWF",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 10,
+      "title": "CCA ECMWF EOF mode 3 clean MJJ 2026",
+      "filename": "CCA_ECMWF_EOF_mode_3_clean_MJJ_2026.png",
+      "path": "figures/CCA_ECMWF_EOF_mode_3_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "ECMWF",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 11,
+      "title": "CCA ECMWF [determinstic probabilistic] Forecast",
+      "filename": "CCA_ECMWF_[determinstic-probabilistic]-Forecast.png",
+      "path": "figures/CCA_ECMWF_[determinstic-probabilistic]-Forecast.png",
+      "category": "Individual Forecast",
+      "model": "ECMWF",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 12,
+      "title": "CCA NCEP CCA mode 1 clean MJJ 2026",
+      "filename": "CCA_NCEP_CCA_mode_1_clean_MJJ_2026.png",
+      "path": "figures/CCA_NCEP_CCA_mode_1_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 13,
+      "title": "CCA NCEP CCA mode 2 clean MJJ 2026",
+      "filename": "CCA_NCEP_CCA_mode_2_clean_MJJ_2026.png",
+      "path": "figures/CCA_NCEP_CCA_mode_2_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 14,
+      "title": "CCA NCEP CCA mode 3 clean MJJ 2026",
+      "filename": "CCA_NCEP_CCA_mode_3_clean_MJJ_2026.png",
+      "path": "figures/CCA_NCEP_CCA_mode_3_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 15,
+      "title": "CCA NCEP EOF mode 1 clean MJJ 2026",
+      "filename": "CCA_NCEP_EOF_mode_1_clean_MJJ_2026.png",
+      "path": "figures/CCA_NCEP_EOF_mode_1_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 16,
+      "title": "CCA NCEP EOF mode 2 clean MJJ 2026",
+      "filename": "CCA_NCEP_EOF_mode_2_clean_MJJ_2026.png",
+      "path": "figures/CCA_NCEP_EOF_mode_2_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 17,
+      "title": "CCA NCEP EOF mode 3 clean MJJ 2026",
+      "filename": "CCA_NCEP_EOF_mode_3_clean_MJJ_2026.png",
+      "path": "figures/CCA_NCEP_EOF_mode_3_clean_MJJ_2026.png",
+      "category": "CCA/EOF Diagnostics",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 18,
+      "title": "CCA NCEP [determinstic probabilistic] Forecast",
+      "filename": "CCA_NCEP_[determinstic-probabilistic]-Forecast.png",
+      "path": "figures/CCA_NCEP_[determinstic-probabilistic]-Forecast.png",
+      "category": "Individual Forecast",
+      "model": "NCEP",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 19,
+      "title": "CCA ensemble skill MJJ 2026",
+      "filename": "CCA_ensemble_skill_MJJ_2026.png",
+      "path": "figures/CCA_ensemble_skill_MJJ_2026.png",
+      "category": "Skill",
+      "model": "MME",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 20,
+      "title": "CCA models skillMatrices C3S summary MJJ 2026",
+      "filename": "CCA_models_skillMatrices_C3S_summary_MJJ_2026.png",
+      "path": "figures/CCA_models_skillMatrices_C3S_summary_MJJ_2026.png",
+      "category": "Skill",
+      "model": "Models",
+      "season": "MJJ",
+      "year": 2026
+    },
+    {
+      "id": 21,
+      "title": "CCA weighted MME probabilistic deterministic MJJ 2026",
+      "filename": "CCA_weighted_MME_probabilistic_deterministic_MJJ_2026.png",
+      "path": "figures/CCA_weighted_MME_probabilistic_deterministic_MJJ_2026.png",
+      "category": "MME Forecast",
+      "model": "MME",
+      "season": "MJJ",
+      "year": 2026
+    }
+  ]
+}
